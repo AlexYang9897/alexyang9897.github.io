@@ -198,9 +198,13 @@ utils.addGlobalFn('pjaxSend', () => {
   Pace.restart()
 }, 'pace_restart')
 </script><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- Search functionality--><!-- Right menu functionality--><style>
+  /* 隐藏页脚里的【框架：Hexo｜主题：Solitude】 */
+  #footer :is(span,div,li):has(> a[href*="hexo.io"]) { display: none !important; }
+  #footer :is(span,div,li):has(> a[href*="solitude"]) { display: none !important; }
+  /* 兼容可能的类名 */
   #footer .framework-info,
   #footer .theme-info,
-  #footer .footer-links { display:none !important; }
+  #footer .powered-by { display: none !important; }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
 
