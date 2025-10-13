@@ -206,16 +206,23 @@ utils.addGlobalFn('pjaxSend', () => {
   #footer .theme-info,
   #footer .powered-by { display: none !important; }
 
-  /* 你的全站深色底色，保持不变 */
+  /* 深色模式：全站底色 */
   [data-theme="dark"]{
     --efu-background: #2b292e;
-    /* 把主题里常用的容器底色变量也改成透明（若该版本使用这些变量，会优先走这里） */
+    /* 把常用容器底色变量设为透明（若版本用到这些变量会优先生效） */
     --efu-secondbg:   transparent;
     --efu-card-bg:    transparent;
     --efu-border-color: rgba(255,255,255,.06);
+    /* 某些版本直接读取 background */
+    background: #2b292e;
+  }
+  /* 兜底：无论是否用变量，都强制页面底色 */
+  html[data-theme="dark"],
+  body[data-theme="dark"]{
+    background-color: #2b292e !important;
   }
 
-  /* 兜底：强制把常见容器的背景设为透明，确保“看见”页面底色 */
+  /* 让首页卡片/侧栏/横幅等容器透明，露出底色 */
   [data-theme="dark"] .card,
   [data-theme="dark"] .post,
   [data-theme="dark"] .article,
@@ -228,10 +235,10 @@ utils.addGlobalFn('pjaxSend', () => {
   [data-theme="dark"] .hometop .group {
     background: transparent !important;
     background-color: transparent !important;
-    box-shadow: none !important;  /* 透明后通常把阴影弱化/去掉更干净 */
+    box-shadow: none !important;
   }
 
-  /* 有些版本在横幅上会叠加遮罩/渐变，顺手去掉 */
+  /* 去掉横幅可能存在的遮罩/渐变 */
   [data-theme="dark"] .hometop .banner::before,
   [data-theme="dark"] .hometop .banner .mask,
   [data-theme="dark"] .top-banner::before {
@@ -239,11 +246,36 @@ utils.addGlobalFn('pjaxSend', () => {
     opacity: 0 !important;
   }
 
-  /* 透明后若层次太淡，可给卡片加一条很轻的边框，增强可读性（可按需注释） */
+  /* 透明后加一条很轻的边框增强层次（可按需注释） */
   [data-theme="dark"] .card,
   [data-theme="dark"] .article,
   [data-theme="dark"] .aside .card-widget {
     border: 1px solid var(--efu-border-color) !important;
+  }
+
+  /* 修正“已读/未读”徽标在透明卡片下的黑底问题 */
+  [data-theme="dark"] .recent-post-item .post-status,
+  [data-theme="dark"] .recent-post-item .post-badge,
+  [data-theme="dark"] .recent-post-item .read,
+  [data-theme="dark"] .recent-post-item .is-read,
+  [data-theme="dark"] .recent-post-item .unread,
+  [data-theme="dark"] .recent-post-item [class*="status"],
+  [data-theme="dark"] .recent-post-item [class*="badge"]{
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--efu-muted, #c9c9c9) !important;
+    border: 1px solid rgba(255,255,255,.14) !important;
+    box-shadow: none !important;
+  }
+  [data-theme="dark"] .recent-post-item .unread,
+  [data-theme="dark"] .recent-post-item [class*="unread"]{
+    color: var(--efu-font-color, #e6e6e6) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+  [data-theme="dark"] .post-badge.read,
+  [data-theme="dark"] .post-status.read,
+  [data-theme="dark"] .post-flag.read{
+    background: transparent !important;
   }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
