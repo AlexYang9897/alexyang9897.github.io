@@ -153,7 +153,6 @@ utils.addGlobalFn('pjaxSend', () => {
   /* 隐藏页脚里的【框架：Hexo｜主题：Solitude】 */
   #footer :is(span,div,li):has(> a[href*="hexo.io"]) { display: none !important; }
   #footer :is(span,div,li):has(> a[href*="solitude"]) { display: none !important; }
-  /* 兼容可能的类名 */
   #footer .framework-info,
   #footer .theme-info,
   #footer .powered-by { display: none !important; }
@@ -161,20 +160,15 @@ utils.addGlobalFn('pjaxSend', () => {
   /* 深色模式：全站底色 */
   [data-theme="dark"]{
     --efu-background: #2b292e;
-    /* 把常用容器底色变量设为透明（若版本用到这些变量会优先生效） */
     --efu-secondbg:   transparent;
     --efu-card-bg:    transparent;
     --efu-border-color: rgba(255,255,255,.06);
-    /* 某些版本直接读取 background */
     background: #2b292e;
   }
-  /* 兜底：无论是否用变量，都强制页面底色 */
   html[data-theme="dark"],
-  body[data-theme="dark"]{
-    background-color: #2b292e !important;
-  }
+  body[data-theme="dark"]{ background-color: #2b292e !important; }
 
-  /* 让首页卡片/侧栏/横幅等容器透明，露出底色 */
+  /* 让首页卡片/侧栏/横幅等容器透明 */
   [data-theme="dark"] .card,
   [data-theme="dark"] .post,
   [data-theme="dark"] .article,
@@ -189,45 +183,63 @@ utils.addGlobalFn('pjaxSend', () => {
     background-color: transparent !important;
     box-shadow: none !important;
   }
-
-  /* 去掉横幅可能存在的遮罩/渐变 */
   [data-theme="dark"] .hometop .banner::before,
   [data-theme="dark"] .hometop .banner .mask,
   [data-theme="dark"] .top-banner::before {
     background: transparent !important;
     opacity: 0 !important;
   }
-
-  /* 透明后加一条很轻的边框增强层次（可按需注释） */
   [data-theme="dark"] .card,
   [data-theme="dark"] .article,
   [data-theme="dark"] .aside .card-widget {
     border: 1px solid var(--efu-border-color) !important;
   }
 
-  /* 修正“已读/未读”徽标在透明卡片下的黑底问题 */
+  /* ===== 关键：强制“已读/未读”徽标透明（含伪元素与背景图） ===== */
+  /* 覆盖常见命名 */
   [data-theme="dark"] .recent-post-item .post-status,
   [data-theme="dark"] .recent-post-item .post-badge,
+  [data-theme="dark"] .recent-post-item .post-flag,
+  [data-theme="dark"] .recent-post-item .badge,
+  [data-theme="dark"] .recent-post-item .status,
   [data-theme="dark"] .recent-post-item .read,
   [data-theme="dark"] .recent-post-item .is-read,
   [data-theme="dark"] .recent-post-item .unread,
+  [data-theme="dark"] .recent-post-item [class*="badge"],
   [data-theme="dark"] .recent-post-item [class*="status"],
-  [data-theme="dark"] .recent-post-item [class*="badge"]{
-    background: transparent !important;
+  [data-theme="dark"] .recent-post-item [class*="read"]{
+    background: none !important;
     background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
     color: var(--efu-muted, #c9c9c9) !important;
     border: 1px solid rgba(255,255,255,.14) !important;
+  }
+  /* 伪元素也清掉（很多主题用 ::before/::after 画底色） */
+  [data-theme="dark"] .recent-post-item .post-status::before,
+  [data-theme="dark"] .recent-post-item .post-status::after,
+  [data-theme="dark"] .recent-post-item .post-badge::before,
+  [data-theme="dark"] .recent-post-item .post-badge::after,
+  [data-theme="dark"] .recent-post-item .badge::before,
+  [data-theme="dark"] .recent-post-item .badge::after,
+  [data-theme="dark"] .recent-post-item .unread::before,
+  [data-theme="dark"] .recent-post-item .unread::after,
+  [data-theme="dark"] .recent-post-item [class*="badge"]::before,
+  [data-theme="dark"] .recent-post-item [class*="badge"]::after,
+  [data-theme="dark"] .recent-post-item [class*="status"]::before,
+  [data-theme="dark"] .recent-post-item [class*="status"]::after,
+  [data-theme="dark"] .recent-post-item [class*="read"]::before,
+  [data-theme="dark"] .recent-post-item [class*="read"]::after{
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
     box-shadow: none !important;
   }
+  /* 未读更醒目点（文字更亮、边框更实） */
   [data-theme="dark"] .recent-post-item .unread,
   [data-theme="dark"] .recent-post-item [class*="unread"]{
     color: var(--efu-font-color, #e6e6e6) !important;
     border-color: rgba(255,255,255,.22) !important;
-  }
-  [data-theme="dark"] .post-badge.read,
-  [data-theme="dark"] .post-status.read,
-  [data-theme="dark"] .post-flag.read{
-    background: transparent !important;
   }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
