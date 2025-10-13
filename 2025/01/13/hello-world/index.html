@@ -206,18 +206,44 @@ utils.addGlobalFn('pjaxSend', () => {
   #footer .theme-info,
   #footer .powered-by { display: none !important; }
 
-  /* --- 深色模式背景改为 #362e33 --- */
+  /* 你的全站深色底色，保持不变 */
   [data-theme="dark"]{
-    /* 主题常用的背景变量（若版本支持变量，会优先走这里） */
-    --efu-background: #362e33;
-    --efu-secondbg:   #362e33;   /* 可按需注释 */
-    /* 少数版本直接读取 body 背景 */
-    background: #362e33;
+    --efu-background:#18171d;
+    /* 把主题里常用的容器底色变量也改成透明（若该版本使用这些变量，会优先走这里） */
+    --efu-secondbg:   transparent;
+    --efu-card-bg:    transparent;
+    --efu-border-color: rgba(255,255,255,.06);
   }
-  /* 兜底：不管是否用变量，强制 dark 模式页面底色 */
-  html[data-theme="dark"],
-  body[data-theme="dark"]{
-    background-color: #3b3845 !important;
+
+  /* 兜底：强制把常见容器的背景设为透明，确保“看见”页面底色 */
+  [data-theme="dark"] .card,
+  [data-theme="dark"] .post,
+  [data-theme="dark"] .article,
+  [data-theme="dark"] .recent-post-item,
+  [data-theme="dark"] .post-card,
+  [data-theme="dark"] .aside,
+  [data-theme="dark"] .aside .card-widget,
+  [data-theme="dark"] .sidebar,
+  [data-theme="dark"] .hometop .banner,
+  [data-theme="dark"] .hometop .group {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;  /* 透明后通常把阴影弱化/去掉更干净 */
+  }
+
+  /* 有些版本在横幅上会叠加遮罩/渐变，顺手去掉 */
+  [data-theme="dark"] .hometop .banner::before,
+  [data-theme="dark"] .hometop .banner .mask,
+  [data-theme="dark"] .top-banner::before {
+    background: transparent !important;
+    opacity: 0 !important;
+  }
+
+  /* 透明后若层次太淡，可给卡片加一条很轻的边框，增强可读性（可按需注释） */
+  [data-theme="dark"] .card,
+  [data-theme="dark"] .article,
+  [data-theme="dark"] .aside .card-widget {
+    border: 1px solid var(--efu-border-color) !important;
   }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
