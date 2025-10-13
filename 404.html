@@ -157,6 +157,20 @@ utils.addGlobalFn('pjaxSend', () => {
   #footer .framework-info,
   #footer .theme-info,
   #footer .powered-by { display: none !important; }
+
+  /* --- 深色模式背景改为 #18171d --- */
+  [data-theme="dark"]{
+    /* 主题常用的背景变量（若版本支持变量，会优先走这里） */
+    --efu-background: #18171d;
+    --efu-secondbg:   #18171d;   /* 可按需注释 */
+    /* 少数版本直接读取 body 背景 */
+    background: #18171d;
+  }
+  /* 兜底：不管是否用变量，强制 dark 模式页面底色 */
+  html[data-theme="dark"],
+  body[data-theme="dark"]{
+    background-color: #18171d !important;
+  }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
 
