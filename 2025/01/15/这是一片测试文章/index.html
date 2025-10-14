@@ -2,7 +2,7 @@
     'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
     'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
     'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
-</script><style> /* 隐藏包含 Hexo/Solitude 链接的整行（p/div/li/span 任意一层） */ footer :is(p,div,li,span):has(a[href*="hexo"]) { display:none !important; } footer :is(p,div,li,span):has(a[href*="solitude"]) { display:none !important; } </style><script>(()=>{
+</script><script>(()=>{
         const saveToLocal = {
             set: function setWithExpiry(key, value, ttl) {
                 if (ttl === 0)
@@ -217,17 +217,13 @@ utils.addGlobalFn('pjaxSend', () => {
   Pace.restart()
 }, 'pace_restart')
 </script><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- Search functionality--><!-- Right menu functionality--><style>
-  /* 兜底隐藏页脚中包含 Hexo/Solitude 的那一行 */
-  footer a[href*="hexo.io"],
-  footer a[href*="solitude.js.org"] {
-    display: none !important;
-  }
-
-  /* 如果上面只隐藏了链接但“框架：”“主题：”字样还在，再把这一行的容器也一起藏掉 */
-  footer a[href*="hexo.io"] { 
-    /* 尝试隐藏它的父级行（常见是 p 或 div），用最近的父节点类名替换 .footer-power 如有的话 */
-  }
-  .footer-power { display:none!important; }
+  /* 隐藏页脚里的【框架：Hexo｜主题：Solitude】 */
+  #footer :is(span,div,li):has(> a[href*="hexo.io"]) { display: none !important; }
+  #footer :is(span,div,li):has(> a[href*="solitude"]) { display: none !important; }
+  /* 兼容可能的类名 */
+  #footer .framework-info,
+  #footer .theme-info,
+  #footer .powered-by { display: none !important; }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
 
