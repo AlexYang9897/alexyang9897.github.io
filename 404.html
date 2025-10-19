@@ -158,57 +158,6 @@ utils.addGlobalFn('pjaxSend', () => {
   #footer .theme-info,
   #footer .powered-by { display: none !important; }
 </style>
-<script>
-  (function () {
-    function ready(fn){ if(document.readyState!=='loading'){fn()}else{document.addEventListener('DOMContentLoaded',fn)} }
-
-    function runTyping() {
-      // 1) 找到横幅“副标题/小字”的元素
-      var selectors = [
-        '.hometop .banner .desc',
-        '.hometop .desc',
-        '.home-top .banner .desc',
-        '.hometop .banner .subtitle',
-        '.hometop .banner .title + .desc'
-      ];
-      var el = null;
-      for (var i=0;i<selectors.length;i++){ el = document.querySelector(selectors[i]); if (el) break; }
-      // 兜底：按文本匹配（你现在的文案）
-      if (!el) {
-        var nodes = Array.from(document.querySelectorAll('.hometop *'));
-        el = nodes.find(function(n){
-          return n.childElementCount === 0 && n.textContent && n.textContent.trim() === '一个热爱生活的人';
-        }) || null;
-      }
-      if (!el) return;
-
-      var text = (el.textContent || '').trim() || '一个热爱生活的人';
-      // 防止重复初始化
-      if (el.dataset.typed === '1') return;
-      el.dataset.typed = '1';
-
-      // 2) 清空原文案，准备打字
-      el.textContent = '';
-
-      function start() {
-        // TypeIt 由主题在 typeit: true 时注入；若还没注入，兜底动态加载
-        function go(){ new TypeIt(el, { speed: 60, lifeLike: true, waitUntilVisible: true }).type(text).go(); }
-        if (window.TypeIt) return go();
-
-        var s = document.createElement('script');
-        s.src = 'https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.js';
-        s.onload = go;
-        document.head.appendChild(s);
-      }
-      start();
-    }
-
-    // 初次进入
-    ready(runTyping);
-    // 适配 PJAX 切页（Solitude 常用）
-    document.addEventListener('pjax:complete', function(){ setTimeout(runTyping, 0); });
-  })();
-</script>    
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
 
 function initPjax() {
