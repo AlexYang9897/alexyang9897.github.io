@@ -22410,9 +22410,9 @@ div#banners .banner-button i {
   flex-direction: column;
 }
 .banners-title-big {
-  font-size: 36px;
+  font-size: 46px;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 300;
   margin-bottom: 8px;
 }
 .banners-title-small {
