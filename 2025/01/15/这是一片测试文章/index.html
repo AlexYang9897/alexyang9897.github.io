@@ -225,31 +225,6 @@ utils.addGlobalFn('pjaxSend', () => {
   #footer .theme-info,
   #footer .powered-by { display: none !important; }
 </style>
-<style>
-  /* —— 只调 UI：导航 / 横幅 / 侧边栏 / 页脚 / 右下工具 —— */
-  /* 顶部导航 */
-  #nav, #nav * { font-weight: 400 !important; }
-  /* 首页横幅 */
-  .hometop .banner .title { font-weight: 600 !important; } /* 主标题稍粗但不炸 */
-  .hometop .banner .desc  { font-weight: 400 !important; }
-  /* 横幅分组按钮文字 */
-  .hometop .group a, .hometop .group .name { font-weight: 500 !important; }
-  /* 侧边栏 */
-  #aside, #aside-content, .aside, .sidebar, .card, .card * { font-weight: 400 !important; }
-  /* 右下工具区 */
-  #rightside, #rightside * { font-weight: 400 !important; }
-  /* 页脚 */
-  #footer, #footer * { font-weight: 400 !important; }
-
-  /* 不要把图标变细（Font Awesome 仍需粗重权重） */
-  #nav i.fas, #nav i.far, #nav i.fab,
-  .hometop i.fas, .hometop i.far, .hometop i.fab,
-  #aside i.fas, #aside i.far, #aside i.fab,
-  #footer i.fas, #footer i.far, #footer i.fab,
-  #rightside i.fas, #rightside i.far, #rightside i.fab { font-weight: 900 !important; }
-
-  /* ❗不去动文章正文（post 区域），因此这里故意不写任何 .post/.post-content 相关选择器 */
-</style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
 
 function initPjax() {
