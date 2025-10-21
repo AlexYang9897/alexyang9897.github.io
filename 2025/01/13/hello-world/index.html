@@ -205,6 +205,19 @@ utils.addGlobalFn('pjaxSend', () => {
   #footer .framework-info,
   #footer .theme-info,
   #footer .powered-by { display: none !important; }
+
+  /* —— 仅覆盖 HomeTop 的标题粗细（不影响其它位置） —— */
+  .hometop .banner .title,
+  .hometop .banner .title :is(h1,h2,span,strong,b,em,i) {
+    font-weight: 500 !important; /* 400=Regular, 500=Medium */
+    line-height: 1.25;
+  }
+  /* 若你的类名是 home-top（某些版本），做兼容 */
+  .home-top .banner .title,
+  .home-top .banner .title :is(h1,h2,span,strong,b,em,i) {
+    font-weight: 500 !important;
+    line-height: 1.25;
+  }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
 
