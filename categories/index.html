@@ -159,30 +159,6 @@ utils.addGlobalFn('pjaxSend', () => {
   #footer .framework-info,
   #footer .theme-info,
   #footer .powered-by { display: none !important; }
-
-  /* —— 仅 HomeTop 标题降粗（强制 normal/400），兼容多种结构 —— */
-  .hometop .banner .title,
-  .hometop .banner :is(h1,h2).title,
-  .hometop .banner :is(h1,h2),
-  .home-top .banner .title,
-  .home-top .banner :is(h1,h2),
-  .hometop-banner :is(h1,h2,.title),
-  #hometop :is(h1,h2,.title),
-  #home-top :is(h1,h2,.title) {
-    font-weight: 400 !important;                 /* 关键：强制普通字重 */
-    font-variation-settings: 'wght' 400 !important; /* 兼容可变字体 */
-    font-synthesis-weight: none;                 /* 禁止浏览器“合成加粗” */
-    line-height: 1.25;
-  }
-  /* 内部嵌套标签（strong/b 等）也跟随降粗，避免再被加粗 */
-  .hometop .banner .title * ,
-  .home-top .banner .title * {
-    font-weight: inherit !important;
-    font-variation-settings: inherit !important;
-  }
-
-  /* 调试：若仍没变化，可临时解开下一行确认选择器是否命中 */
-  /* .hometop .banner .title { color: #f00 !important; } */
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
 
