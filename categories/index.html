@@ -160,10 +160,16 @@ utils.addGlobalFn('pjaxSend', () => {
   #footer .theme-info,
   #footer .powered-by { display: none !important; }
 
-  /* 彻底隐藏返回顶部按钮（兼容多个版本/选择器） */
-  #rightside #go-up,
-  #rightmenu-go-up {
+  /* 彻底隐藏返回顶部按钮及整个右侧工具栏 */
+  #rightside,
+  #rightside button.top,
+  #rightside .rs_show button.top,
+  button.top,
+  .rightside-button-top {
     display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
