@@ -2,7 +2,7 @@
     'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
     'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
     'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
-</script><script src="https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/pace.min.js"></script><link rel="icon" type="image/png" sizes="32x32" href="/img/pwa/touxiang.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/pwa/touxiang.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000"><link rel="shortcut icon" href="/favicon.ico"><link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Lobster&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Satisfy&family=Courgette&display=swap" rel="stylesheet"><script>(()=>{
+</script><script src="https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/pace.min.js"></script><link rel="icon" type="image/png" sizes="32x32" href="/img/pwa/touxiang.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/pwa/touxiang.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000"><link rel="shortcut icon" href="/favicon.ico"><link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Lobster&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"><script>(()=>{
         const saveToLocal = {
             set: function setWithExpiry(key, value, ttl) {
                 if (ttl === 0)
@@ -199,12 +199,12 @@ setTimeout(() => {
   /* 左上角 Lime 艺术字体样式 */
   #site-name .title,
   #site-name span.title {
-    font-family: 'Dancing Script', cursive !important;
+    font-family: 'Pacifico', cursive !important;
     font-size: 1.8rem !important;
-    font-weight: 400 !important;
+    font-weight: normal !important;
     letter-spacing: 2px !important;
     color: #ffffff !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
     transition: all 0.3s ease !important;
     display: inline-block !important;
   }
@@ -214,36 +214,7 @@ setTimeout(() => {
   #site-name:hover span.title {
     transform: scale(1.05) !important;
     letter-spacing: 3px !important;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
-  }
-
-  /* 全局字体稍微变细 - 只影响内容区域，不影响导航栏 */
-  #content-inner p,
-  #content-inner span:not(#percent),
-  #content-inner div,
-  #content-inner a,
-  #content-inner li,
-  .article-container,
-  .article-container *,
-  .recent-post-item,
-  .card-widget {
-    font-weight: 380 !important;
-  }
-
-  /* 标题保持适当粗细 */
-  #content-inner h1,
-  #content-inner h2,
-  #content-inner h3,
-  #content-inner h4,
-  #content-inner h5,
-  #content-inner h6,
-  .article-title {
-    font-weight: 480 !important;
-  }
-
-  /* 代码块和特殊元素保持正常粗细 */
-  code, pre, kbd, samp {
-    font-weight: 400 !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25) !important;
   }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
