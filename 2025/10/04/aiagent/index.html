@@ -241,10 +241,8 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* 左上角 Lime 艺术字体样式 */
-  #header .site-name,
-  #header #site-name,
-  .site-title,
-  .site-name {
+  #site-name .title,
+  #site-name span.title {
     font-family: 'Pacifico', cursive !important;
     font-size: 1.8rem !important;
     font-weight: normal !important;
@@ -255,13 +253,12 @@ window.addEventListener('DOMContentLoaded', () => {
     background-clip: text !important;
     text-shadow: none !important;
     transition: all 0.3s ease !important;
+    display: inline-block !important;
   }
 
   /* 鼠标悬停效果 */
-  #header .site-name:hover,
-  #header #site-name:hover,
-  .site-title:hover,
-  .site-name:hover {
+  #site-name:hover .title,
+  #site-name:hover span.title {
     transform: scale(1.05) !important;
     letter-spacing: 3px !important;
   }
