@@ -248,10 +248,15 @@ window.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   }
   
-  /* 确保文章内容在导航栏下方正确渲染 */
-  #content-inner, #post, .layout {
-    position: relative !important;
-    z-index: 1 !important;
+  /* 确保文章内容不创建独立的层叠上下文，让毛玻璃能正确虚化 */
+  #content-inner, #post, .layout, #article-container {
+    will-change: auto !important;
+    isolation: auto !important;
+  }
+  
+  /* 移除可能影响毛玻璃效果的 transform */
+  #post, #article-container, .post-content {
+    transform: none !important;
   }
 </style>
 <div class="js-pjax"></div></div><!-- pjax--><script>let pjax = null;
