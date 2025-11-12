@@ -223,21 +223,21 @@ window.addEventListener('DOMContentLoaded', () => {
     pointer-events: none !important;
   }
 
-  /* 导航栏滚动时保持毛玻璃透明效果 - 完全透明只保留虚化 */
+  /* 导航栏滚动时保持毛玻璃透明效果 */
   #page-header.nav-fixed #nav {
-    background: rgba(255, 255, 255, 0) !important;
-    backdrop-filter: saturate(150%) blur(12px) !important;
-    -webkit-backdrop-filter: saturate(150%) blur(12px) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: saturate(180%) blur(8px) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(8px) !important;
     transform: translateZ(0) !important;
     isolation: isolate !important;
     z-index: 9999 !important;
   }
 
-  /* 暗色模式下的毛玻璃效果 - 完全透明只保留虚化 */
+  /* 暗色模式下的毛玻璃效果 */
   [data-theme='dark'] #page-header.nav-fixed #nav {
-    background: rgba(18, 18, 18, 0) !important;
-    backdrop-filter: saturate(150%) blur(12px) !important;
-    -webkit-backdrop-filter: saturate(150%) blur(12px) !important;
+    background: rgba(18, 18, 18, 0.2) !important;
+    backdrop-filter: saturate(180%) blur(8px) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(8px) !important;
     transform: translateZ(0) !important;
     isolation: isolate !important;
     z-index: 9999 !important;
@@ -255,22 +255,22 @@ window.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   }
 
-  /* 导航栏子菜单（下拉菜单）的毛玻璃效果 - 完全透明只保留虚化 */
+  /* 导航栏子菜单（下拉菜单）的毛玻璃效果 */
   .menus_item_child {
-    background: rgba(255, 255, 255, 0) !important;
-    backdrop-filter: saturate(150%) blur(12px) !important;
-    -webkit-backdrop-filter: saturate(150%) blur(12px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: saturate(180%) blur(8px) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
   }
 
-  /* 暗色模式下的子菜单毛玻璃效果 - 完全透明只保留虚化 */
+  /* 暗色模式下的子菜单毛玻璃效果 */
   [data-theme='dark'] .menus_item_child {
-    background: rgba(18, 18, 18, 0) !important;
-    backdrop-filter: saturate(150%) blur(12px) !important;
-    -webkit-backdrop-filter: saturate(150%) blur(12px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(18, 18, 18, 0.2) !important;
+    backdrop-filter: saturate(180%) blur(8px) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
   }
   
   /* 确保文章内容的 z-index 低于导航栏 */
