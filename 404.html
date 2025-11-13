@@ -337,6 +337,12 @@ setTimeout(() => {
   .giscus .gsc-timeline {
     margin-top: 0.5rem !important;
   }
+
+  /* 上一篇/下一篇导航背景色与主题一致 */
+  #post #pagination .next-post,
+  #post #pagination .prev-post {
+    background: var(--efu-card-bg) !important;
+  }
 </style>
 <script>
   // 防止 hexo-blog-encrypt 重复弹出错误提示
