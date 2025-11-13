@@ -294,6 +294,32 @@ setTimeout(() => {
     margin: 2rem auto !important;
     padding: 2rem !important;
   }
+
+  /* 优化评论区布局 */
+  #post-comment {
+    margin-top: 2rem !important;
+    padding: 2rem 3rem 1.5rem 3rem !important;
+    background: var(--efu-card-bg) !important;
+    border-radius: 12px !important;
+  }
+
+  /* 移动端评论区布局 */
+  @media (max-width: 768px) {
+    #post-comment {
+      padding: 1.5rem 1rem 1rem 1rem !important;
+      margin-top: 1.5rem !important;
+    }
+  }
+
+  /* Giscus 评论区样式优化 */
+  .giscus, .giscus-frame {
+    margin-top: 1rem !important;
+  }
+
+  /* 评论标题优化 */
+  #post-comment .comment-head {
+    margin-bottom: 1.5rem !important;
+  }
 </style>
 <script>
   // 防止 hexo-blog-encrypt 重复弹出错误提示
